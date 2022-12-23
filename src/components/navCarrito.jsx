@@ -5,6 +5,7 @@ import IconCart from '../img/icon-cart.svg'
 
 export const NavCarrito = (_data) => {
     const getCarrito = JSON.parse(localStorage.getItem("carrito"))
+    const Arraylocal= Array.from(getCarrito)
 
     const precioTotal = (_num1, _num2) => {
 
@@ -16,6 +17,31 @@ export const NavCarrito = (_data) => {
             </>
         )
     }
+
+
+    const contindoCarrito =()=>Arraylocal.map(e => {
+        const objeto = e
+        const { cantidad, img, precio, nombre } = e
+        return (
+            <>
+            <div className="car">
+            <img className="car__img" src={img} />
+            <div className="car__info">
+                <titulo className="car__nombre" >{nombre}</titulo>
+                <div className='car__costo'>
+                <span className="car__precio">${precio}</span>
+                <span className="car__cantidad">x{cantidad}</span>
+                {precioTotal(cantidad, precio)}
+                <button className="car__borrar" onClick={()=>delLocalStorage(objeto)} ><img src={basurero}/></button>
+                </div>
+            </div>
+            </div>
+            </>
+        )
+    }) 
+    
+
+
 
 
     const delLocalStorage = (_e) => {
@@ -31,28 +57,7 @@ export const NavCarrito = (_data) => {
                 <div className="carro__articulos">
                     <h4>Cart</h4>
                     <hr/>
-                    {
-                        Array.from(getCarrito).map(e => {
-                            const objeto = e
-                            const { cantidad, img, precio, nombre } = e
-                            return (
-                                <>
-                                <div className="car">
-                                <img className="car__img" src={img} />
-                                <div className="car__info">
-                                    <titulo className="car__nombre" >{nombre}</titulo>
-                                    <div className='car__costo'>
-                                    <span className="car__precio">${precio}</span>
-                                    <span className="car__cantidad">x{cantidad}</span>
-                                    {precioTotal(cantidad, precio)}
-                                    <button className="car__borrar" onClick={()=>delLocalStorage(objeto)} ><img src={basurero}/></button>
-                                    </div>
-                                </div>
-                                </div>
-                                </>
-                            )
-                        }) 
-                    }
+                    {contindoCarrito()}
                     <button className='car__comprar'>Checkout</button>
                 </div>
             </div>
