@@ -22,27 +22,7 @@ export const NavCarrito = (_data) => {
         const filtrado = getCarrito.filter((item) => item !== _e)
         localStorage.setItem('carrito', JSON.stringify(filtrado));
     }
-    const articulosLocalStorage=()=>   getCarrito.forEach(e => {
-        const objeto = e
-        const { cantidad, img, precio, nombre } = e
-        return (
-            <>
-            <div className="car">
-            <img className="car__img" src={img} />
-            <div className="car__info">
-                <titulo className="car__nombre" >{nombre}</titulo>
-                <div className='car__costo'>
-                <span className="car__precio">${precio}</span>
-                <span className="car__cantidad">x{cantidad}</span>
-                {precioTotal(cantidad, precio)}
-                <button className="car__borrar" onClick={()=>delLocalStorage(objeto)} ><img src={basurero}/></button>
-                </div>
-            </div>
-            </div>
-            </>
-        )
-    })
-
+   
 
     return (
         <>
@@ -52,7 +32,7 @@ export const NavCarrito = (_data) => {
                     <h4>Cart</h4>
                     <hr/>
                     {
-                        getCarrito.map(e => {
+                        Array.from(getCarrito).map(e => {
                             const objeto = e
                             const { cantidad, img, precio, nombre } = e
                             return (
