@@ -5,9 +5,19 @@ import IconCart from '../img/icon-cart.svg'
 
 export const NavCarrito = (_data) => {
     const getCarrito = JSON.parse(localStorage.getItem("carrito"))
-    const Arraylocal= Array.from(getCarrito)
+    let Arraylocal=[]
+    
+    getCarrito===null?console.log("holi"):Arraylocal= Array.from(getCarrito);
 
-    const precioTotal = (_num1, _num2) => {
+
+   
+
+    
+
+
+
+
+     const precioTotal = (_num1, _num2) => {
 
         const operacion = _num1 * _num2
         const total = operacion.toFixed(1)
@@ -62,7 +72,7 @@ export const NavCarrito = (_data) => {
                 </div>
             </div>
         </>
-    )
+    ) 
 }
 
 
