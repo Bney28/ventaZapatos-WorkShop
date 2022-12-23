@@ -1,0 +1,76 @@
+@import "styles"
+
+body
+    @include text
+
+    .main-container
+        &__logoIcon
+            width: 180px
+            height: 30px
+            padding-top: 10px
+
+    .nav-burger
+        display: none
+
+    .nav-container
+        display: flex
+        justify-content: space-around
+        /* border: 2px solid */
+
+        .navbar
+
+            &__items
+                display: flex
+                flex-direction: row
+                list-style: none
+                justify-content: center
+                gap: 2em
+        
+        .logos
+            width: 50px
+            height: 50px
+            display: flex
+            &__cart
+                width: 30px
+                height: 28px
+                padding: 5px
+
+            &__avatar
+                width: 40px
+                height: 40px
+                padding: 2px
+
+@media (max-width:400px)
+
+    body
+        .nav-burger
+            display: flex
+            flex-direction: row
+            width: auto
+
+            &__burger
+                display: flex
+                flex-direction: row
+            
+            &__burgerIcon
+                width: 25px
+                margin-right: 4px
+                transition: all 300ms ease-out
+            
+        .nav-burger div:nth-child(2)
+            overflow: hidden
+            display: flex
+            flex-direction: column
+            width: 50vw
+            height: 0
+            position: fixed
+            top: 6.7%
+            transition: all 250ms ease-out
+            z-index: 3
+            
+        .nav-burger div.open:nth-child(2)
+            height: 60vh
+            border: 2px solid
+
+        .nav-container
+            display: none
