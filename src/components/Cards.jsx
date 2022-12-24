@@ -75,9 +75,9 @@ const AppiCard = () => {
                 <span>50% Off</span>
 
                 <div className="div2__buttonDiv">
-                  <button onClick={() => suma(id)}>+</button>
-                  <span id={id} className="contador">0</span>
                   <button onClick={() => resta(id)}>-</button>
+                  <span id={id} className="contador">0</span>
+                  <button onClick={() => suma(id)}>+</button>
                   <button onClick={() => localStorageAlmacenamiento(id,imagenUno,precio,nombre)} className="btnAdd"> <img className="container__img" src={IconCart} /> Add to cart</button>
                 </div>
               </div>
