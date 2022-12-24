@@ -1,5 +1,5 @@
 {
-  "homepage":"https://andres0818.github.io/ventaZapatos-WorkShop",
+  "homepage": "https://andres0818.github.io/ventaZapatos-WorkShop",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -11,8 +11,8 @@
     "react-scripts": "^5.0.1"
   },
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "server": "json-server --watch src/api.json --port 3000 ",
     "start": "react-scripts start",
     "build": "react-scripts build",
