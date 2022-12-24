@@ -21,7 +21,7 @@ const resta = (_id) => {
 }
 
 const carrito=[]
-const localStorageAlmacenamiento = (_img,_precio,_nombre) => {
+const localStorageAlmacenamiento = (_id,_img,_precio,_nombre) => {
 
   const cantidad = acomulador
 
@@ -31,10 +31,11 @@ const localStorageAlmacenamiento = (_img,_precio,_nombre) => {
     precio:_precio,
     cantidad:cantidad,
   }
-
   carrito.push(newCarrito)
-
   localStorage.setItem('carrito', JSON.stringify(carrito));
+  document.getElementById(`${_id}`).innerHTML = 0
+  acomulador=0
+
 }
 
 const AppiCard = () => {
@@ -77,7 +78,7 @@ const AppiCard = () => {
                   <button onClick={() => suma(id)}>+</button>
                   <span id={id} className="contador">0</span>
                   <button onClick={() => resta(id)}>-</button>
-                  <button onClick={() => localStorageAlmacenamiento(imagenUno,precio,nombre)} className="btnAdd"> <img className="container__img" src={IconCart} /> Add to cart</button>
+                  <button onClick={() => localStorageAlmacenamiento(id,imagenUno,precio,nombre)} className="btnAdd"> <img className="container__img" src={IconCart} /> Add to cart</button>
                 </div>
               </div>
               <hr />
