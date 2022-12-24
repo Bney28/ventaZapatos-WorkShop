@@ -8,8 +8,6 @@ import "../sass/_mixins.scss"
 import IconCart from '../img/icon-cart.svg'
 import { DeployModal } from "./modal";
 
-
-
 let acomulador = 0
 
 const suma = (_id) => {
@@ -42,13 +40,13 @@ const localStorageAlmacenamiento = (_img,_precio,_nombre) => {
 const AppiCard = () => {
   const [articulo, SetArticulo] = useState([])
   useEffect(() => {
-    Axios.get(apis.apiAll())
+    Axios.get(apis.api)
       .then(response => {
-        SetArticulo(response.data)
+        SetArticulo(response.data.record.allArticle)
       })
   }, [])
 
-
+ 
   return (
     <>
       {
@@ -90,7 +88,7 @@ const AppiCard = () => {
     </>
 
   );
-
+ 
 }
 
 export default AppiCard
