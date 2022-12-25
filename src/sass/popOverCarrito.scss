@@ -1,13 +1,13 @@
 @import 'styles';
 
-
-
 span:nth-child(1) {
     display: flex;
     position: absolute;
     width: 50px;
     height: 50px;
-    left: -50px;
+    top: 12px;
+    right: 100%;
+    /* left: 100%; */
 }
 
 .carro {
@@ -16,6 +16,12 @@ span:nth-child(1) {
     display: flex;
     width: 80px;
     height: 80px;
+
+    &__contenedor {
+        img {
+        width: 25px;
+        height: 25px;
+    }}
 
     &__articulos {
         top: 5px;

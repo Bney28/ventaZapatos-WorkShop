@@ -3,74 +3,88 @@
 body
     @include text
 
-    .main-container
+    .nav-container
         &__logoIcon
             width: 180px
             height: 30px
             padding-top: 10px
 
-    .nav-burger
+    #check
         display: none
+
+    .burgerIcon
+        display: none
+        img
+            width: 30px
+            height: 30px
+            border-radius: 2px
 
     .nav-container
         display: flex
         justify-content: space-around
-        /* border: 2px solid */
 
-        .navbar
+    .navbar
+        display: flex
+        flex-direction: row
+        list-style: none
+        gap: 2em
+        justify-content: center
+        &__link
+            text-decoration: none
+            color: $neutral-color-black
 
-            &__items
-                display: flex
-                flex-direction: row
-                list-style: none
-                justify-content: center
-                gap: 2em
-        
-        .logos
-            width: 50px
-            height: 50px
-            display: flex
-            &__cart
-                width: 30px
-                height: 28px
-                padding: 5px
+    .logos
+        width: 50px
+        height: 50px
+        display: flex
+        flex-direction: row
+        gap: 5px
+        &__avatar
+            width: 40px
+            height: 40px
+            padding: 2px
 
-            &__avatar
-                width: 40px
-                height: 40px
-                padding: 2px
-
-@media (max-width:400px)
+@media (max-width:750px)
 
     body
-        .nav-burger
-            display: flex
-            flex-direction: row
-            width: auto
-
-            &__burger
-                display: flex
-                flex-direction: row
-            
-            &__burgerIcon
-                width: 25px
-                margin-right: 4px
-                transition: all 300ms ease-out
-            
-        .nav-burger div:nth-child(2)
-            overflow: hidden
-            display: flex
-            flex-direction: column
-            width: 50vw
-            height: 0
-            position: fixed
-            top: 6.7%
-            transition: all 250ms ease-out
-            z-index: 3
-            
-        .nav-burger div.open:nth-child(2)
-            height: 60vh
-            border: 2px solid
-
-        .nav-container
+        .logos
             display: none
+        .check
+            &__checkBtn
+                display: block
+
+        .burgerIcon
+            display: block
+            position: fixed
+            top: 20px
+            right: 20px
+            /* border: 2px solid */
+        
+        .navbar
+            display: block
+            position: fixed
+            top: 50px
+            left: -110%
+            right: 0
+            background: $neutral-color-white
+            width: 100%
+            height: 70vh
+            li
+                padding: 2rem
+                display: flex
+                justify-content: center
+
+        #check:checked ~ ul
+            left: -11%
+            transition: all .25s
+
+        div
+            nav
+                ul
+                    list-style: none
+                    padding: 1em
+                    
+                .navbar
+                    &__link
+                        text-decoration: none
+                        color: $neutral-color-black
