@@ -9,37 +9,24 @@ export const Nav = () => {
             <main className="main-container">
                 <header className="header">
 
-                    <div className="nav-burger">
-                        <div className="nav-burger__burger">
-                            <img src={Burger} alt="menu hamburguesa" className="nav-burger__burgerIcon" />
-                            <img src={Logo} alt="texto logo" />
-                        </div>
-                        <div className='nav-burger__divBurger'>
-                            <nav className="navbar">
-                                <ul className="navbar__items">
-                                    <li><a className="navbar_link" href="#"></a>Collections</li>
-                                    <li><a className="navbar_link" href="#"></a>Men</li>
-                                    <li><a className="navbar_link" href="#"></a>Women</li>
-                                    <li><a className="navbar_link" href="#"></a>About</li>
-                                    <li><a className="navbar_link" href="#"></a>Contact</li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-
                     <div className="nav-container">
                         <img src={Logo} alt="texto logo" className="nav-container__logoIcon" />
-                        <nav className="navbar">
-                            <ul className="navbar__items">
-                                <li><a className="navbar_link" href="#"></a>Collections</li>
-                                <li><a className="navbar_link" href="#"></a>Men</li>
-                                <li><a className="navbar_link" href="#"></a>Women</li>
-                                <li><a className="navbar_link" href="#"></a>About</li>
-                                <li><a className="navbar_link" href="#"></a>Contact</li>
-                            </ul>
-                        </nav>
-                        <NavCarrito/>
+
+                        <input type="checkbox" id='check' />
+                        <label for='check' className='check__checkBtn'>
+                            <i className="burgerIcon"><img src={Burger} alt="menu hamburguesa" /></i>
+                        </label>
+
+                        <ul className="navbar">
+                            <li><a className="navbar__link" href="#">Collections</a></li>
+                            <li><a className="navbar__link" href="#">Men</a></li>
+                            <li><a className="navbar__link" href="#">Women</a></li>
+                            <li><a className="navbar__link" href="#">About</a></li>
+                            <li><a className="navbar__link" href="#">Contact</a></li>
+                        </ul>
+
                         <div className="logos">
+                            <NavCarrito className="logos__cart" />
                             <img src={Avatar} className="logos__avatar" />
                         </div>
                     </div>
