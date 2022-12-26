@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import * as apis from "./api";
 import IconCart from '../img/icon-cart.svg'
-import deployModal from "./modal";
+import { DeployModal } from "./modal";
 
 let acomulador = 0
 
@@ -17,7 +17,7 @@ const resta = (_id) => {
 }
 
 const carrito=[]
-const localStorageAlmacenamiento = (_img,_precio,_nombre) => {
+const localStorageAlmacenamiento = (_id,_img,_precio,_nombre) => {
 
   const cantidad = acomulador
 
@@ -27,22 +27,23 @@ const localStorageAlmacenamiento = (_img,_precio,_nombre) => {
     precio:_precio,
     cantidad:cantidad,
   }
-
   carrito.push(newCarrito)
-
   localStorage.setItem('carrito', JSON.stringify(carrito));
+  document.getElementById(`${_id}`).innerHTML = 0
+  acomulador=0
+
 }
 
 const AppiCard = () => {
   const [articulo, SetArticulo] = useState([])
   useEffect(() => {
-    Axios.get(apis.apiAll())
+    Axios.get(apis.api)
       .then(response => {
-        SetArticulo(response.data)
+        SetArticulo(response.data.record.allArticle)
       })
   }, [])
 
-  
+ 
   return (
     <>
       {
@@ -51,14 +52,14 @@ const AppiCard = () => {
           return (
             <div className="container">
               <div className="div1">
-                <div className="div1__imgPpal" onClick={() => deployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}>
-                  <img src={imagenUno} />
+                <div className="div1__imgPpal" >
+                  <img src={imagenUno} onClick={() => DeployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}/>
                 </div>
 
                 <div className="div1__imgSec">
-                  <img src={imagenDos} />
-                  <img src={imagenTres} />
-                  <img src={imagenCuatro} />
+                  <img src={imagenDos} onClick={() => DeployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}/>
+                  <img src={imagenTres} onClick={() => DeployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}/>
+                  <img src={imagenCuatro} onClick={() => DeployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}/>
                 </div>
               </div>
 
@@ -70,10 +71,10 @@ const AppiCard = () => {
                 <span>50% Off</span>
 
                 <div className="div2__buttonDiv">
-                  <button onClick={() => suma(id)}>+</button>
-                  <span id={id} className="contador">0</span>
                   <button onClick={() => resta(id)}>-</button>
-                  <button onClick={() => localStorageAlmacenamiento(imagenUno,precio,nombre)} className="btnAdd"> <img className="container__img" src={IconCart} /> Add to cart</button>
+                  <span id={id} className="contador">0</span>
+                  <button onClick={() => suma(id)}>+</button>
+                  <button onClick={() => localStorageAlmacenamiento(id,imagenUno,precio,nombre)} className="btnAdd"> <img className="container__img" src={IconCart} /> Add to cart</button>
                 </div>
               </div>
               <hr />
@@ -84,7 +85,7 @@ const AppiCard = () => {
     </>
 
   );
-
+ 
 }
 
 export default AppiCard
