@@ -143,7 +143,7 @@ export const AppiCardMen = () => {
 
 //Filtrado desde el Navbar
 
-/* const menFilter = document.querySelector("#men-articles")
-menFilter.addEventListener("click" () =>{
-
-}) */
+/* export const menFilter = document.getElementById("men-articles")
+menFilter.addEventListener("click", () =>{
+    AppiCardMen()
+    }) */

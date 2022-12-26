@@ -21,8 +21,8 @@ export const Nav = () => {
 
                         <ul className="navbar">
                             <li><a className="navbar__link" href="#" >Collections</a></li>
-                            <li><a className="navbar__link" href="#" onClick={() => AppiCardMen()}>Men</a></li>
-                            <li><a className="navbar__link" href="#" onClick={() => AppiCardWomen()}>Women</a></li>
+                            <li><a className="navbar__link" href="#">Men</a></li>
+                            <li><a className="navbar__link" href="#">Women</a></li>
                             <li><a className="navbar__link" href="#">About</a></li>
                             <li><a className="navbar__link" href="#">Contact</a></li>
                         </ul>
