@@ -1,5 +1,7 @@
 import { Nav } from "./components/nv";
 import AppiCard from "./components/Cards";
+import { AppiCardMen } from "./components/Filter";
+import { AppiCardWomen } from "./components/Filter";
 import "./sass/_gallery-modal.scss"
 import "./sass/_modal-cart.scss"
 import "./sass/_modal-navbar.scss"
@@ -16,6 +18,9 @@ function App() {
     <>
     <Nav/>
      <AppiCard/>
+     <AppiCardMen/>
+     <AppiCardWomen/>
+
     </>
     
   );
