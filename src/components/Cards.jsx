@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import * as apis from "./api";
 import IconCart from '../img/icon-cart.svg'
-import { DeployModal } from "./modal";
+import deployModal from "./modal.jsx";
 
 let acomulador = 0
 
@@ -53,13 +53,13 @@ const AppiCard = () => {
             <div className="container">
               <div className="div1">
                 <div className="div1__imgPpal" >
-                  <img src={imagenUno} onClick={() => DeployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}/>
+                  <img src={imagenUno} onClick={() => deployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}/>
                 </div>
 
                 <div className="div1__imgSec">
-                  <img src={imagenDos} onClick={() => DeployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}/>
-                  <img src={imagenTres} onClick={() => DeployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}/>
-                  <img src={imagenCuatro} onClick={() => DeployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}/>
+                  <img src={imagenDos} onClick={() => deployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}/>
+                  <img src={imagenTres} onClick={() => deployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}/>
+                  <img src={imagenCuatro} onClick={() => deployModal(imagenUno, imagenDos, imagenTres, imagenCuatro)}/>
                 </div>
               </div>
 

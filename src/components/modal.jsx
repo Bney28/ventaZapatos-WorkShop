@@ -113,4 +113,4 @@ const deployModal = (imagenUno, imagenDos, imagenTres, imagenCuatro) => {
   
   };
   
-  export default deployModal
+export default deployModal

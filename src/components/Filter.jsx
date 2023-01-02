@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import * as apis from "./api";
 import IconCart from '../img/icon-cart.svg'
-import deployModal from "./modal";
+import deployModal from "./modal.jsx";
 
 let acomulador = 0
 
